@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node_modules/.bin/browser-sync start --server --files \"*.html, css/*.css, js/*.js\" --port 2080",
+    "test": "echo 1111",
+    "kjsdhfjks": "echo 1111",
+    "pretest": "echo 2222",
+    "posttest": "echo 3333",
+    "demo":"nodemon node.js"
+  },
+  "dependencies": {
+    "angular": "^1.5.3",
+    "todomvc-app-css": "^2.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.2"
+  }
+}
