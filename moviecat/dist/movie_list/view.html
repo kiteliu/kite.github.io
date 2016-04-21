@@ -1,0 +1,31 @@
+<h1 class="page-header">{{title}}</h1>
+<div class="list-group">
+  <div class="list-group">
+    <a ng-repeat="movie in movies track by $index" href="#/detail/{{movie.id}}" class="list-group-item">
+      <div class="media">
+        <div class="media-left">
+          <img class="media-object" ng-src="{{movie.images.small}}" alt="{{movie.title}}">
+        </div>
+        <div class="media-body">
+          <span class="badge pull-right">{{movie.rating.average}}</span>
+          <h3 class="media-heading">{{movie.title}}</h3>
+          <p>类型：<span>{{movie.genres.join('、')}}</span>&nbsp;&nbsp;&nbsp;&nbsp;上映年份：<span>{{movie.year}}</span></p>
+          <p>导演：<span ng-repeat="d in movie.directors">{{d.name + ($last ? '' : '、')}}</span></p>
+          <p>主演：<span ng-repeat="c in movie.casts">{{c.name + ($last ? '' : '、')}}</span></p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+<div ng-show="!loading">
+  <p>总共：{{totalCount}}条记录，第{{page}}/{{totalPage}}页</p>
+  <nav>
+    <ul class="pager">
+      <li ng-class="{disabled: page <= 1}"><a ng-click="go(page-1)">Previous</a></li>
+      <li ng-class="{disabled: page >= totalPage}"><a  ng-click="go(page+1)">Next</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="loading" ng-hide="!loading">
+  <div class="spinner"></div>
+</div>
